@@ -50,7 +50,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     render() {
         return (
-            <div className="px__mwc__carousel">
+            <div className="px__mwc__carousel" style={{height: this.props.height}}>
                 <AutoSizer>                    
                     {({ width }) => (
                         <div>

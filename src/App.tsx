@@ -63,8 +63,13 @@ class App extends Component<{}, AppState> {
             <Route exact path="/">
               <ReactVirtualized/>
             </Route>
-            <Route exact path="/test">
-              <Carousel renderItem={this.renderItem} itemCount={this.state.items.length} height={200} itemSize={250}/>
+            <Route exact path="/test">              
+              <div style={{padding: '2rem 0'}}>
+                <Carousel renderItem={this.renderItem} itemCount={this.state.items.length} height={200} itemSize={250} />
+              </div>
+              <div style={{ padding: '2rem 0' }}>
+                  <Carousel renderItem={this.renderItem} itemCount={this.state.items.length} height={200} itemSize={250} />
+                </div>                          
             </Route>
           </Switch>
         </div>
