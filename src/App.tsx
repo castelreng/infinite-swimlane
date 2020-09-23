@@ -21,14 +21,13 @@ class App extends Component<{}, AppState> {
   }
 
   renderItem(props: ListChildComponentProps) {
-    const { style, index, isScrolling } = props;
+    const { style, index } = props;
     return (
       <div key={index} style={style}>
         <div className="item">
-          <img src={this.state.items[index].image.Original}></img>
+          <img alt="iamge" src={this.state.items[index].image.Original}></img>
           <span className="text-content">
             {this.state.items[index].name}
-            {isScrolling ? 'lokoko' : 'nonon'}
           </span>
         </div>
       </div>
@@ -36,9 +35,13 @@ class App extends Component<{}, AppState> {
   }
 
   componentDidMount() {
-    const channels = data.channels.map((channel : any) => {
+    this._initChannels();
+  }
+
+  _initChannels() {
+    const channels = data.channels.map((channel: any) => {
       const live = data.live.filter((item) => item.channelId === channel.id);
-      if(live) {
+      if (live) {
         channel.image = live[0].image;
       }
       return channel;
@@ -63,8 +66,6 @@ class App extends Component<{}, AppState> {
             </ul>
           </nav>
 
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
           <Switch>
             <Route exact path="/">
               <ReactVirtualized/>

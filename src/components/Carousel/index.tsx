@@ -59,7 +59,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                 <AutoSizer>                    
                     {({ width }) => (
                         <div>
-                            <div className={`px__mwc__arrow px__mwc__arrow--left ${this.state.offset == 0 ? 'hidden' :''}`} 
+                            <div className={`px__mwc__arrow px__mwc__arrow--left ${this.state.offset === 0 ? 'hidden' :''}`} 
                                 style={{ height: `${this.props.height}px`}}>
                                 <button onClick={() => { this._backward() }}>Prev</button>
                             </div>     
