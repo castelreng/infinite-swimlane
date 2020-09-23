@@ -21,30 +21,32 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         arrowsVisible: false
     };
     scrollableContainerRef: any;
-    constructor(props: any) {
+    constructor(props: CarouselProps) {
         super(props);
         this.scrollableContainerRef = React.createRef();
     }   
 
     _forward() {
         this.setState((prevState) => {
+            const offset = prevState.offset + (window.innerWidth - this.props.itemSize);
             this.scrollableContainerRef.current.scrollTo({
-                left: prevState.offset + 1000,
+                left: offset,
                 top: 0,
                 behavior: 'smooth',
             });
-            return { ...prevState, offset: prevState.offset + 1000 }
+            return { offset: offset }
         });
     }
 
     _backward() {
         this.setState((prevState) => {
+            const offset = prevState.offset - (window.innerWidth - this.props.itemSize );
             this.scrollableContainerRef.current.scrollTo({
-                left: prevState.offset - 1000,
+                left: offset,
                 top: 0,
                 behavior: 'smooth',
             });
-            return { ...prevState, offset: prevState.offset - 1000 }
+            return { offset: offset}
         });
     }
 
