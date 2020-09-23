@@ -19,9 +19,15 @@
         height: 100%;
         &.px__mwc__arrow--left{
             left: 0;
+            &.hidden{
+                display: none !important;
+            }
         }
         &.px__mwc__arrow--right{
             right: 0;
+            &.hidden{
+                display: none !important;
+            }
         }
     }
 }

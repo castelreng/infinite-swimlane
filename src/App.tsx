@@ -20,13 +20,14 @@ class App extends Component<{}, AppState> {
   }
 
   renderItem(props: any) {
-    const { style, index } = props;
+    const { style, index, isScrolling } = props;
     return (
       <div key={index} style={style}>
         <div className="item">
           <img src={this.state.items[index].image.Original}></img>
           <span className="text-content">
             {this.state.items[index].name}
+            {isScrolling ? 'lokoko' : 'nonon'}
           </span>
         </div>
       </div>
@@ -73,7 +74,7 @@ class App extends Component<{}, AppState> {
               </div>
               <div style={{ padding: '2rem 0', backgroundColor: '#000'  }}>
                 <Carousel renderItem={(params) =>this.renderItem(params)}  itemCount={this.state.items.length} height={200} itemSize={250} />
-                </div>                          
+              </div>                          
             </Route>
           </Switch>
         </div>
