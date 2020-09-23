@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import ReactVirtualized from './components/ReactVirtualized';
 import Carousel from './components/Carousel';
+import data from "./data.json";
 
 interface AppState {
   items: any[]
@@ -23,22 +24,25 @@ class App extends Component<{}, AppState> {
     return (
       <div key={index} style={style}>
         <div className="item">
-          <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"></img>
-          <div>testst</div>
+          <img src={this.state.items[index].image.Original}></img>
+          <span>
+            {this.state.items[index].name}
+          </span>
         </div>
       </div>
     );
   }
 
   componentDidMount() {
+    const channels = data.channels.map((channel : any) => {
+      const live = data.live.filter((item) => item.channelId === channel.id);
+      if(live) {
+        channel.image = live[0].image;
+      }
+      return channel;
+    });
     this.setState({
-      items: Array(100).fill({}).map((val, idx) => {
-        return {
-          id: idx,
-          name: 'John Doe',
-          image: 'http://via.placeholder.com/40',
-        }
-      })
+      items: channels
     });
   }
 
@@ -65,10 +69,10 @@ class App extends Component<{}, AppState> {
             </Route>
             <Route exact path="/test">              
               <div style={{padding: '2rem 0'}}>
-                <Carousel renderItem={this.renderItem} itemCount={this.state.items.length} height={200} itemSize={250} />
+                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={200} itemSize={250} />
               </div>
               <div style={{ padding: '2rem 0' }}>
-                  <Carousel renderItem={this.renderItem} itemCount={this.state.items.length} height={200} itemSize={250} />
+                <Carousel renderItem={(params) =>this.renderItem(params)}  itemCount={this.state.items.length} height={200} itemSize={250} />
                 </div>                          
             </Route>
           </Switch>
