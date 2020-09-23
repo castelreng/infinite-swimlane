@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,8 +22,10 @@ class App extends Component<{}, AppState> {
     const { style, index } = props;
     return (
       <div key={index} style={style}>
-        Item {index}
-        <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" style={{ height: '20rem' }}></img>
+        <div className="item">
+          <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"></img>
+          <div>testst</div>
+        </div>
       </div>
     );
   }
@@ -62,7 +64,7 @@ class App extends Component<{}, AppState> {
               <ReactVirtualized/>
             </Route>
             <Route exact path="/test">
-              <Carousel renderItem={this.renderItem} items={this.state.items}/>
+              <Carousel renderItem={this.renderItem} items={this.state.items} height={200} itemSize={250}/>
             </Route>
           </Switch>
         </div>

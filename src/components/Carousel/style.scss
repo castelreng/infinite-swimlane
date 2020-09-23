@@ -1,9 +1,10 @@
 .px__mwc__carousel {
     position: relative;
-  
+    height: 100% !important;
     & .px__mwc__carousel__component{
         overflow-x: hidden !important;
-        scroll-behavior: smooth; 
+        overflow-y: hidden !important;
+        scroll-behavior: smooth;
     }
 
     & .px__mwc__arrow{
@@ -13,6 +14,7 @@
         justify-content: center;
         align-items: center;
         z-index: 99999;
+        height: 100%;
         &.px__mwc__arrow--left{
             left: 0;
         }

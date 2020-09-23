@@ -9,6 +9,8 @@ interface CarouselState {
 
 interface CarouselProps {
     items: any[];
+    height : number;
+    itemSize : number;
     renderItem: (props: any) => any;
 }
 
@@ -48,24 +50,23 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     render() {
         return (
-            <div className="px__mwc__carousel">
-              
+            <div className="px__mwc__carousel">              
                 <AutoSizer>
-                    {({ height, width }) => (
+                    {({ width }) => (
                         <div>
-                            <div className="px__mwc__arrow px__mwc__arrow--left" style={{height: '350px'}}>
+                            <div className="px__mwc__arrow px__mwc__arrow--left" style={{ height: `${this.props.height}px`}}>
                                 <button onClick={() => { this.prev() }} className="">Prev without blink</button>
                             </div>     
-                            <div className="px__mwc__arrow px__mwc__arrow--right" style={{ height: '350px' }}>
+                            <div className="px__mwc__arrow px__mwc__arrow--right" style={{ height: `${this.props.height}px`}}>
                                 <button onClick={() => { this.next() }} className="">Prev without blink</button>
                             </div>
                             <List
                                 className="px__mwc__carousel__component"
                                 ref={this.listRef}
                                 outerRef={this.scrollableContainerRef}
-                                height={350}
+                                height={this.props.height}
                                 itemCount={this.props.items.length}
-                                itemSize={350}
+                                itemSize={this.props.itemSize}
                                 layout="horizontal"
                                 width={width}
                             >

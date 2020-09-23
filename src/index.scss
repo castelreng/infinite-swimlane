@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.item {
+  background-color: red;
+  height: 100%;
+  margin: 0px 1rem;
+  img {
+    height: 85%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
