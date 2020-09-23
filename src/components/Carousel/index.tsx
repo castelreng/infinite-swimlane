@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FixedSizeList as List, } from 'react-window';
+import { FixedSizeList as List, ListOnScrollProps, ListChildComponentProps} from 'react-window';
 import { AutoSizer } from 'react-virtualized';
 import './style.scss';
 
@@ -11,7 +11,7 @@ interface CarouselProps {
     itemCount: number;
     height : number;
     itemSize : number;
-    renderItem: (props: any) => any;
+    renderItem: (props: ListChildComponentProps) => any;
 }
 
 class Carousel extends Component<CarouselProps, CarouselState> {
@@ -26,7 +26,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.listRef = React.createRef();
     }   
 
-    _next() {
+    _forward() {
         this.setState((prevState) => {
             this.scrollableContainerRef.current.scrollTo({
                 left: prevState.offset + 1000,
@@ -37,7 +37,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         });
     }
 
-    _prev() {
+    _backward() {
         this.setState((prevState) => {
             this.scrollableContainerRef.current.scrollTo({
                 left: prevState.offset - 1000,
@@ -48,8 +48,8 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         });
     }
 
-    _onScroll(params : any) {
-        const { scrollDirection, scrollOffset, scrollUpdateWasRequested } = params;
+    _onScroll(props: ListOnScrollProps) {
+        const { scrollOffset } = props;
         this.setState({offset: scrollOffset});
     }
 
@@ -61,21 +61,21 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                         <div>
                             <div className={`px__mwc__arrow px__mwc__arrow--left ${this.state.offset == 0 ? 'hidden' :''}`} 
                                 style={{ height: `${this.props.height}px`}}>
-                                <button onClick={() => { this._prev() }}>Prev</button>
+                                <button onClick={() => { this._backward() }}>Prev</button>
                             </div>     
                             <div className="px__mwc__arrow px__mwc__arrow--right" style={{ height: `${this.props.height}px`}}>
-                                <button onClick={() => { this._next() }}>Next</button>
+                                <button onClick={() => { this._forward() }}>Next</button>
                             </div>
 
                             <List
                                 className="px__mwc__carousel__component"
                                 outerRef={this.scrollableContainerRef}
                                 height={this.props.height}
+                                width={width}
                                 itemCount={this.props.itemCount}
                                 itemSize={this.props.itemSize}
                                 layout="horizontal"
-                                width={width}
-                                onScroll={(params) => {this._onScroll(params)}}
+                                onScroll={(props) => { this._onScroll(props)}}
                                 useIsScrolling
                             >
                                 {this.props.renderItem}
@@ -83,7 +83,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                         </div>
                        )}
                 </AutoSizer>
-                </div>
+            </div>
         );
     }
 };

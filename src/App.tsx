@@ -9,6 +9,7 @@ import {
 import ReactVirtualized from './components/ReactVirtualized';
 import Carousel from './components/Carousel';
 import data from "./data.json";
+import { ListChildComponentProps } from 'react-window';
 
 interface AppState {
   items: any[]
@@ -19,7 +20,7 @@ class App extends Component<{}, AppState> {
     items: []
   }
 
-  renderItem(props: any) {
+  renderItem(props: ListChildComponentProps) {
     const { style, index, isScrolling } = props;
     return (
       <div key={index} style={style}>
