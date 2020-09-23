@@ -64,7 +64,7 @@ class App extends Component<{}, AppState> {
               <ReactVirtualized/>
             </Route>
             <Route exact path="/test">
-              <Carousel renderItem={this.renderItem} items={this.state.items} height={200} itemSize={250}/>
+              <Carousel renderItem={this.renderItem} itemsCount={this.state.items.length} height={200} itemSize={250}/>
             </Route>
           </Switch>
         </div>

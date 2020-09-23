@@ -8,7 +8,7 @@ interface CarouselState {
 }
 
 interface CarouselProps {
-    items: any[];
+    itemsCount: number;
     height : number;
     itemSize : number;
     renderItem: (props: any) => any;
@@ -18,11 +18,9 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     state: CarouselState = {
         offset: 0
     };
-    listRef: any;
     scrollableContainerRef: any;
     constructor(props: any) {
         super(props);
-        this.listRef = React.createRef();
         this.scrollableContainerRef = React.createRef();
     }   
 
@@ -55,17 +53,16 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                     {({ width }) => (
                         <div>
                             <div className="px__mwc__arrow px__mwc__arrow--left" style={{ height: `${this.props.height}px`}}>
-                                <button onClick={() => { this.prev() }} className="">Prev without blink</button>
+                                <button onClick={() => { this.prev() }} className="">Prev</button>
                             </div>     
                             <div className="px__mwc__arrow px__mwc__arrow--right" style={{ height: `${this.props.height}px`}}>
-                                <button onClick={() => { this.next() }} className="">Prev without blink</button>
+                                <button onClick={() => { this.next() }} className="">Next</button>
                             </div>
                             <List
                                 className="px__mwc__carousel__component"
-                                ref={this.listRef}
                                 outerRef={this.scrollableContainerRef}
                                 height={this.props.height}
-                                itemCount={this.props.items.length}
+                                itemCount={this.props.itemsCount}
                                 itemSize={this.props.itemSize}
                                 layout="horizontal"
                                 width={width}
