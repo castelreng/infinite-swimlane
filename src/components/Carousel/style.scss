@@ -1,0 +1,23 @@
+.px__mwc__carousel {
+    position: relative;
+  
+    & .px__mwc__carousel__component{
+        overflow-x: hidden !important;
+        scroll-behavior: smooth; 
+    }
+
+    & .px__mwc__arrow{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 99999;
+        &.px__mwc__arrow--left{
+            left: 0;
+        }
+        &.px__mwc__arrow--right{
+            right: 0;
+        }
+    }
+}

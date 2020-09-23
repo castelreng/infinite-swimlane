@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FixedSizeList as List, } from 'react-window';
 import { AutoSizer } from 'react-virtualized';
-
+import './style.scss';
 
 interface CarouselState {
     offset: number
@@ -48,25 +48,31 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     render() {
         return (
-            <div>
-                <div>
-                    <button onClick={() => { this.prev() }}>Prev without blink</button>
-                    <button onClick={() => { this.next() }}>Next without blink</button>
-                </div>
+            <div className="px__mwc__carousel">
+              
                 <AutoSizer>
                     {({ height, width }) => (
-                        <List
-                            style={{ scrollBehavior: 'smooth', overflowX: 'hidden' }}
-                            ref={this.listRef}
-                            outerRef={this.scrollableContainerRef}
-                            height={350}
-                            itemCount={this.props.items.length}
-                            itemSize={350}
-                            layout="horizontal"
-                            width={width}
-                        >
-                            {this.props.renderItem}
-                        </List>)}
+                        <div>
+                            <div className="px__mwc__arrow px__mwc__arrow--left" style={{height: '350px'}}>
+                                <button onClick={() => { this.prev() }} className="">Prev without blink</button>
+                            </div>     
+                            <div className="px__mwc__arrow px__mwc__arrow--right" style={{ height: '350px' }}>
+                                <button onClick={() => { this.next() }} className="">Prev without blink</button>
+                            </div>
+                            <List
+                                className="px__mwc__carousel__component"
+                                ref={this.listRef}
+                                outerRef={this.scrollableContainerRef}
+                                height={350}
+                                itemCount={this.props.items.length}
+                                itemSize={350}
+                                layout="horizontal"
+                                width={width}
+                            >
+                                {this.props.renderItem}
+                            </List>
+                        </div>
+                       )}
                 </AutoSizer>
             </div>
         );
