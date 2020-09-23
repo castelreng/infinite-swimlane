@@ -28,7 +28,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     _forward() {
         this.setState((prevState) => {
-            const offset = prevState.offset + (window.innerWidth - this.props.itemSize);
+            const offset = prevState.offset + (window.innerWidth - this.props.itemSize / 2);
             this.scrollableContainerRef.current.scrollTo({
                 left: offset,
                 top: 0,
@@ -40,7 +40,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     _backward() {
         this.setState((prevState) => {
-            const offset = prevState.offset - (window.innerWidth - this.props.itemSize );
+            const offset = prevState.offset - (window.innerWidth - this.props.itemSize / 2);
             this.scrollableContainerRef.current.scrollTo({
                 left: offset,
                 top: 0,
