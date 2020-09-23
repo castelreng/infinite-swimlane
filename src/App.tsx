@@ -18,7 +18,7 @@ class App extends Component<{}, AppState> {
     items: []
   }
 
-  renderItem(props: { index: any, style: any }) {
+  renderItem(props: any) {
     const { style, index } = props;
     return (
       <div key={index} style={style}>
@@ -64,7 +64,7 @@ class App extends Component<{}, AppState> {
               <ReactVirtualized/>
             </Route>
             <Route exact path="/test">
-              <Carousel renderItem={this.renderItem} itemsCount={this.state.items.length} height={200} itemSize={250}/>
+              <Carousel renderItem={this.renderItem} itemCount={this.state.items.length} height={200} itemSize={250}/>
             </Route>
           </Switch>
         </div>

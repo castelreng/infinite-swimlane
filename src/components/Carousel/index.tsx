@@ -8,7 +8,7 @@ interface CarouselState {
 }
 
 interface CarouselProps {
-    itemsCount: number;
+    itemCount: number;
     height : number;
     itemSize : number;
     renderItem: (props: any) => any;
@@ -19,9 +19,11 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         offset: 0
     };
     scrollableContainerRef: any;
+    listRef : any;
     constructor(props: any) {
         super(props);
         this.scrollableContainerRef = React.createRef();
+        this.listRef = React.createRef();
     }   
 
     next() {
@@ -48,8 +50,8 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     render() {
         return (
-            <div className="px__mwc__carousel">              
-                <AutoSizer>
+            <div className="px__mwc__carousel">
+                <AutoSizer>                    
                     {({ width }) => (
                         <div>
                             <div className="px__mwc__arrow px__mwc__arrow--left" style={{ height: `${this.props.height}px`}}>
@@ -62,7 +64,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                                 className="px__mwc__carousel__component"
                                 outerRef={this.scrollableContainerRef}
                                 height={this.props.height}
-                                itemCount={this.props.itemsCount}
+                                itemCount={this.props.itemCount}
                                 itemSize={this.props.itemSize}
                                 layout="horizontal"
                                 width={width}
@@ -72,7 +74,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                         </div>
                        )}
                 </AutoSizer>
-            </div>
+                </div>
         );
     }
 };

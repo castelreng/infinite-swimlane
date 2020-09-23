@@ -1,10 +1,14 @@
 .px__mwc__carousel {
     position: relative;
     height: 100% !important;
-    & .px__mwc__carousel__component{
-        overflow-x: hidden !important;
-        overflow-y: hidden !important;
-        scroll-behavior: smooth;
+    & .px__mwc__carousel__component{      
+        scroll-behavior: smooth;      
+        @media screen and (max-width: 530px) {
+             overflow-x: visible !important;
+        }
+        @media screen and (min-width: 530px) {
+           overflow-x: hidden !important;
+        }
     }
 
     & .px__mwc__arrow{
