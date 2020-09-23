@@ -14,11 +14,15 @@ code {
 
 
 .item {
-  background-color: red;
+  color: white;
+  background-color: #25123a;
   height: 100%;
   margin: 0px 0.5rem;
   img {
     width: 100%;
     object-fit: cover;
+  }
+  .text-content {
+    padding: 0.5rem;
   }
 }

@@ -25,7 +25,7 @@ class App extends Component<{}, AppState> {
       <div key={index} style={style}>
         <div className="item">
           <img src={this.state.items[index].image.Original}></img>
-          <span>
+          <span className="text-content">
             {this.state.items[index].name}
           </span>
         </div>
@@ -68,10 +68,10 @@ class App extends Component<{}, AppState> {
               <ReactVirtualized/>
             </Route>
             <Route exact path="/test">              
-              <div style={{padding: '2rem 0'}}>
+              <div style={{ padding: '2rem 0', backgroundColor: '#000' }}>
                 <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={200} itemSize={250} />
               </div>
-              <div style={{ padding: '2rem 0' }}>
+              <div style={{ padding: '2rem 0', backgroundColor: '#000'  }}>
                 <Carousel renderItem={(params) =>this.renderItem(params)}  itemCount={this.state.items.length} height={200} itemSize={250} />
                 </div>                          
             </Route>
