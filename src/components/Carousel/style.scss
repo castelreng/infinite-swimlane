@@ -17,16 +17,28 @@
         align-items: center;
         z-index: 99999;
         height: 100%;
+        background: #0a0a0a;
+        width: 5rem;
+        transition: opacity .18s ease-in;
+        
         &.px__mwc__arrow--left{
             left: 0;
+            opacity: 0.75;
+            &:hover {
+                opacity: 1;
+            }
             &.hidden{
-                display: none !important;
+                opacity: 0;
             }
         }
         &.px__mwc__arrow--right{
             right: 0;
+            opacity: 0.75;
+            &:hover {
+                opacity: 1;
+            }
             &.hidden{
-                display: none !important;
+                opacity: 0;
             }
         }
     }
