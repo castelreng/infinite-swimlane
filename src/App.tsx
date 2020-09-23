@@ -25,7 +25,7 @@ class App extends Component<{}, AppState> {
     return (
       <div key={index} style={style}>
         <div className="item">
-          <img alt="iamge" src={this.state.items[index].image.Original}></img>
+          <img alt={this.state.items[index].name} src={this.state.items[index].image.Original}></img>
           <span className="text-content">
             {this.state.items[index].name}
           </span>

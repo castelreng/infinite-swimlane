@@ -41,7 +41,7 @@ class ReactVirtualized extends Component<{}, CarouselState> {
         return (
             <div key={key} style={style}>
                 {columnIndex}
-                <img alt="No image" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" style={{ height: '20rem' }}></img>                
+                <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" style={{ height: '20rem' }} alt="Ntest"></img>                
             </div>
         );
     }

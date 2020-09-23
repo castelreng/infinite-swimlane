@@ -19,11 +19,9 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         offset: 0
     };
     scrollableContainerRef: any;
-    listRef : any;
     constructor(props: any) {
         super(props);
         this.scrollableContainerRef = React.createRef();
-        this.listRef = React.createRef();
     }   
 
     _forward() {
