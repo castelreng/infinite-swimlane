@@ -71,11 +71,11 @@ class App extends Component<{}, AppState> {
               <ReactVirtualized/>
             </Route>
             <Route exact path="/test">              
-              <div style={{ padding: '2rem 0', backgroundColor: '#000' }}>
+              <div className="swimlane">
                 <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={200} itemSize={250} />
               </div>
-              <div style={{ padding: '2rem 0', backgroundColor: '#000'  }}>
-                <Carousel renderItem={(params) =>this.renderItem(params)}  itemCount={this.state.items.length} height={200} itemSize={250} />
+              <div className="swimlane">
+                <Carousel renderItem={(params) =>this.renderItem(params)}  itemCount={this.state.items.length} height={300} itemSize={350} />
               </div>                          
             </Route>
           </Switch>
