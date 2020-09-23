@@ -4,7 +4,8 @@ import { AutoSizer } from 'react-virtualized';
 import './style.scss';
 
 interface CarouselState {
-    offset: number
+    offset: number,
+    arrowsVisible: boolean
 }
 
 interface CarouselProps {
@@ -16,7 +17,8 @@ interface CarouselProps {
 
 class Carousel extends Component<CarouselProps, CarouselState> {
     state: CarouselState = {
-        offset: 0
+        offset: 0,
+        arrowsVisible: false
     };
     scrollableContainerRef: any;
     constructor(props: any) {
@@ -51,17 +53,24 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.setState({offset: scrollOffset});
     }
 
+    _setArrowsVisibility(isVisible : boolean) {
+        this.setState({arrowsVisible: isVisible})
+    }
+
     render() {
         return (
-            <div className="px__mwc__carousel" style={{height: this.props.height}}>
+            <div className="px__mwc__carousel" style={{height: this.props.height}} 
+                onMouseEnter={() => this._setArrowsVisibility(true)}
+                onMouseLeave={() => this._setArrowsVisibility(false)}>
                 <AutoSizer>                    
                     {({ width }) => (
                         <div>
-                            <div className={`px__mwc__arrow px__mwc__arrow--left ${this.state.offset === 0 ? 'hidden' :''}`} 
+                            <div className={`px__mwc__arrow px__mwc__arrow--left ${this.state.offset === 0 || !this.state.arrowsVisible ? 'hidden' :''}`} 
                                 style={{ height: `${this.props.height}px`}}>
                                 <button onClick={() => { this._backward() }}>Prev</button>
                             </div>     
-                            <div className="px__mwc__arrow px__mwc__arrow--right" style={{ height: `${this.props.height}px`}}>
+                            <div className={`px__mwc__arrow px__mwc__arrow--right ${!this.state.arrowsVisible ? 'hidden':''}`} 
+                                style={{ height: `${this.props.height}px`}}>
                                 <button onClick={() => { this._forward() }}>Next</button>
                             </div>
 
