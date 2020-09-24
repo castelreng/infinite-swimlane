@@ -30,4 +30,7 @@ code {
 .swimlane {
   padding: 2rem 0;
   background-color: #000;
+  & h2{
+    color: white;
+  }
 }

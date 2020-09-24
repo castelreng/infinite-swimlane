@@ -54,10 +54,12 @@ class App extends Component<{}, AppState> {
           <Switch>
             <Route exact path="/">
               <div className="swimlane">
-                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={30} height={200} itemSize={250} />
+                <h2 style={{ paddingLeft: '0.5rem' }}>More than 300 items</h2>
+                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={200} itemSize={250} />
               </div>
               <div className="swimlane">
-                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={300} itemSize={350} itemOffset={150} />
+                <h2 style={{paddingLeft: '3.5rem'}}>Only 20 items with offset</h2>
+                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={21} height={300} itemSize={350} itemOffset={50} />
               </div>     
             </Route>           
           </Switch>

@@ -28,6 +28,7 @@
                 opacity: 1;
             }
             &.hidden{
+                z-index: 0;
                 opacity: 0;
             }
         }
@@ -38,6 +39,7 @@
                 opacity: 1;
             }
             &.hidden{
+                z-index: 0;
                 opacity: 0;
             }
         }
