@@ -28,13 +28,20 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.scrollableContainerRef = React.createRef();
     }   
 
+    //Return the right gap to add to offset to ensure that last/first cropped item will be full visible after a backward/forward action
+    _computeGap() : number {
+        const itemsCountDisplayed = (window.innerWidth / this.props.itemSize);
+        const itemRest = itemsCountDisplayed % 1; 
+        return itemRest * this.props.itemSize;
+    }
+
     _forward() {
         this.setState((prevState) => {
             let offset = prevState.offset;
             if (offset === 0) {
-                offset += Math.round(window.innerWidth + this.props.itemSize / 2 + this.props.itemOffset);
+                offset += Math.round(window.innerWidth - this._computeGap() + this.props.itemOffset);
             } else {
-                offset += Math.round(window.innerWidth + this.props.itemSize / 2);
+                offset += Math.round(window.innerWidth - this._computeGap());
             }
           
             this.scrollableContainerRef.current.scrollTo({
@@ -50,11 +57,11 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.setState((prevState) => {
             let offset = prevState.offset;
             //Offset value after the first forward action
-            const firstOffset  = Math.round(window.innerWidth + this.props.itemSize / 2 + this.props.itemOffset);
+            const firstOffset = window.innerWidth + this._computeGap() + this.props.itemOffset;
             if (offset <= firstOffset) {
                 offset = 0;
             } else {
-                offset -= Math.round(window.innerWidth + this.props.itemSize / 2);
+                offset -= window.innerWidth - this._computeGap()
             }
             
             this.scrollableContainerRef.current.scrollTo({
