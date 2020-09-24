@@ -54,7 +54,7 @@ class App extends Component<{}, AppState> {
           <Switch>
             <Route exact path="/">
               <div className="swimlane">
-                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={200} itemSize={250} />
+                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={30} height={200} itemSize={250} />
               </div>
               <div className="swimlane">
                 <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={300} itemSize={350} itemOffset={150} />

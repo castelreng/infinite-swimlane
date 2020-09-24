@@ -39,11 +39,10 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.setState((prevState) => {
             let offset = prevState.offset;
             if (offset === 0) {
-                offset += Math.round(window.innerWidth - this._computeGap() + this.props.itemOffset);
+                offset += window.innerWidth - this._computeGap() + this.props.itemOffset;
             } else {
-                offset += Math.round(window.innerWidth - this._computeGap());
+                offset += window.innerWidth - this._computeGap();
             }
-          
             this.scrollableContainerRef.current.scrollTo({
                 left: offset,
                 top: 0,
@@ -51,6 +50,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
             });
             return { offset: offset }
         });
+        this._isEnd();
     }
 
     _backward() {
@@ -63,7 +63,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
             } else {
                 offset -= window.innerWidth - this._computeGap()
             }
-            
             this.scrollableContainerRef.current.scrollTo({
                 left: offset,
                 top: 0,
@@ -91,6 +90,10 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         );
     }
 
+    _isEnd() : boolean {
+        return (this.props.itemSize * this.props.itemCount - this.state.offset) <= window.innerWidth;        
+    }
+
     render() {
         return (
             <div className="px__mwc__carousel" style={{height: this.props.height}} 
@@ -103,7 +106,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                                 style={{ height: `${this.props.height}px`}}>
                                 <button onClick={() => { this._backward() }}>Prev</button>
                             </div>     
-                            <div className={`px__mwc__arrow px__mwc__arrow--right ${!this.state.arrowsVisible ? 'hidden':''}`} 
+                            <div className={`px__mwc__arrow px__mwc__arrow--right ${!this.state.arrowsVisible || this._isEnd() ? 'hidden':''}`} 
                                 style={{ height: `${this.props.height}px`}}>
                                 <button onClick={() => { this._forward() }}>Next</button>
                             </div>
