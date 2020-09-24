@@ -59,7 +59,7 @@ class App extends Component<{}, AppState> {
               </div>
               <div className="swimlane">
                 <h2 style={{paddingLeft: '3.5rem'}}>Only 20 items with offset</h2>
-                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={21} height={300} itemSize={350} itemOffset={50} />
+                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={20} height={300} itemSize={350} itemOffset={50} />
               </div>     
             </Route>           
           </Switch>

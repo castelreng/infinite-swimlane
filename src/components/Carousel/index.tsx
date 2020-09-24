@@ -91,7 +91,8 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     }
 
     _isEnd() : boolean {
-        return (this.props.itemSize * this.props.itemCount - this.state.offset) <= window.innerWidth;        
+        const maxOffset = (this.props.itemSize * this.props.itemCount) - window.innerWidth + this.props.itemOffset;
+        return this.state.offset >= maxOffset;        
     }
 
     render() {
