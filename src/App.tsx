@@ -21,16 +21,14 @@ class App extends Component<{}, AppState> {
   }
 
   renderItem(props: ListChildComponentProps) {
-    const { style, index } = props;
+    const { index } = props;
     return (
-      <div key={index} style={style}>
         <div className="item">
           <img alt={this.state.items[index].name} src={this.state.items[index].image.Original}></img>
           <span className="text-content">
             {this.state.items[index].name}
           </span>
         </div>
-      </div>
     );
   }
 

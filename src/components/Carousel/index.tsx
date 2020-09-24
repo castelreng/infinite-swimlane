@@ -9,10 +9,11 @@ interface CarouselState {
 }
 
 interface CarouselProps {
+    height: number;
     itemCount: number;
-    height : number;
-    itemSize : number;
+    itemSize: number;
     renderItem: (props: ListChildComponentProps) => any;
+
 }
 
 class Carousel extends Component<CarouselProps, CarouselState> {
@@ -59,6 +60,15 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.setState({arrowsVisible: isVisible})
     }
 
+    _renderItem(props: ListChildComponentProps) {
+        const { style, index } = props;
+        return (
+            <div key={index} style={style}>
+                {this.props.renderItem(props)}
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className="px__mwc__carousel" style={{height: this.props.height}} 
@@ -86,8 +96,9 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                                 layout="horizontal"
                                 onScroll={(props) => { this._onScroll(props)}}
                                 useIsScrolling
+                                initialScrollOffset={20000}
                             >
-                                {this.props.renderItem}
+                                {(props) => this._renderItem(props)}
                             </List>
                         </div>
                        )}
