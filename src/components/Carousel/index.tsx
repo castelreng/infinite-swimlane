@@ -12,15 +12,16 @@ interface CarouselProps {
     height: number;
     itemCount: number;
     itemSize: number;
-    itemOffset?: string; //Expect CSS values (px, rem, ...)
+    itemOffset: number;
     renderItem: (props: ListChildComponentProps) => any;
 }
 
 class Carousel extends Component<CarouselProps, CarouselState> {
+    static defaultProps = { itemOffset: 0 };
     state: CarouselState = {
         offset: 0,
         arrowsVisible: false
-    };
+    };    
     scrollableContainerRef: any;
     constructor(props: CarouselProps) {
         super(props);
@@ -29,7 +30,13 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     _forward() {
         this.setState((prevState) => {
-            const offset = prevState.offset + (window.innerWidth - this.props.itemSize / 2);
+            let offset = prevState.offset;
+            if (offset === 0) {
+                offset += Math.round(window.innerWidth + this.props.itemSize / 2 + this.props.itemOffset);
+            } else {
+                offset += Math.round(window.innerWidth + this.props.itemSize / 2);
+            }
+          
             this.scrollableContainerRef.current.scrollTo({
                 left: offset,
                 top: 0,
@@ -41,7 +48,15 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 
     _backward() {
         this.setState((prevState) => {
-            const offset = prevState.offset - (window.innerWidth - this.props.itemSize / 2);
+            let offset = prevState.offset;
+            //Offset value after the first forward action
+            const firstOffset  = Math.round(window.innerWidth + this.props.itemSize / 2 + this.props.itemOffset);
+            if (offset <= firstOffset) {
+                offset = 0;
+            } else {
+                offset -= Math.round(window.innerWidth + this.props.itemSize / 2);
+            }
+            
             this.scrollableContainerRef.current.scrollTo({
                 left: offset,
                 top: 0,
