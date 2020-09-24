@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FixedSizeList as List, ListOnScrollProps, ListChildComponentProps} from 'react-window';
-import { AutoSizer } from 'react-virtualized';
+import AutoSizer from 'react-virtualized-auto-sizer';
 import './style.scss';
 
 interface CarouselState {

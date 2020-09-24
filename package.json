@@ -22,7 +22,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-smooth-scrollbar": "^8.0.6",
-    "react-virtualized": "^9.22.2",
+    "react-virtualized-auto-sizer": "^1.0.2",
     "react-window": "^1.8.5",
     "smooth-scrollbar": "^8.5.3",
     "typescript": "~3.7.2"

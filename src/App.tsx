@@ -3,10 +3,8 @@ import './App.scss';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import ReactVirtualized from './components/ReactVirtualized';
 import Carousel from './components/Carousel';
 import data from "./data.json";
 import { ListChildComponentProps } from 'react-window';
@@ -53,29 +51,15 @@ class App extends Component<{}, AppState> {
     return (
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">React virtualized</Link>
-              </li>
-              <li>
-                <Link to="/test">React window</Link> 
-              </li>
-            </ul>
-          </nav>
-
           <Switch>
             <Route exact path="/">
-              <ReactVirtualized/>
-            </Route>
-            <Route exact path="/test">              
               <div className="swimlane">
                 <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={200} itemSize={250} />
               </div>
               <div className="swimlane">
-                <Carousel renderItem={(params) =>this.renderItem(params)}  itemCount={this.state.items.length} height={300} itemSize={350} itemOffset={150} />
-              </div>                          
-            </Route>
+                <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={300} itemSize={350} itemOffset={150} />
+              </div>     
+            </Route>           
           </Switch>
         </div>
       </Router>
