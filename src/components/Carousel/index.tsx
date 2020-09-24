@@ -12,8 +12,8 @@ interface CarouselProps {
     height: number;
     itemCount: number;
     itemSize: number;
+    itemOffset?: string; //Expect CSS values (px, rem, ...)
     renderItem: (props: ListChildComponentProps) => any;
-
 }
 
 class Carousel extends Component<CarouselProps, CarouselState> {
@@ -63,7 +63,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     _renderItem(props: ListChildComponentProps) {
         const { style, index } = props;
         return (
-            <div key={index} style={style}>
+            <div key={index} style={{ ...style, paddingLeft: this.props.itemOffset}}>
                 {this.props.renderItem(props)}
             </div>
         );
@@ -96,7 +96,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                                 layout="horizontal"
                                 onScroll={(props) => { this._onScroll(props)}}
                                 useIsScrolling
-                                initialScrollOffset={20000}
                             >
                                 {(props) => this._renderItem(props)}
                             </List>
