@@ -1,9 +1,11 @@
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;  
-}
+
 
 .px__mwc__carousel {
+    ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;  
+    }
+    
     & .px__mwc__carousel__component{      
         scroll-behavior: smooth;
         overflow-x: auto;  
