@@ -5,8 +5,7 @@ import './style.scss';
 
 interface CarouselState {
     offset: number,
-    arrowsVisible: boolean,
-    isScrolling: boolean
+    arrowsVisible: boolean
 }
 
 interface CarouselProps {
@@ -42,9 +41,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     }
 
     _forward() {
-        if(this.state.isScrolling) 
-            return;
-        this._startScrolling();
         this.setState((prevState) => {
             let offset = prevState.offset;
             if (offset === 0) {
@@ -63,9 +59,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     }
 
     _backward() {
-        if (this.state.isScrolling)
-            return;
-        this._startScrolling();
         this.setState((prevState) => {
             let offset = prevState.offset;
             //Offset value after the first forward action
@@ -82,13 +75,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
             });
             return { offset: offset}
         });
-    }
-
-
-    _startScrolling() {
-        this.setState({ isScrolling: true });
-        //Wait for the scroll animation
-        setTimeout(() => { this.setState({ isScrolling: false }) }, 700);
     }
 
     _onScroll(props: ListOnScrollProps) {
