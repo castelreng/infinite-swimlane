@@ -22,7 +22,9 @@ class App extends Component<{}, AppState> {
     const { index } = props;
     return (
         <div className="item">
-          <img alt={this.state.items[index].name} src={this.state.items[index].image.Original}></img>
+          <div className="img-container">
+            <img alt={this.state.items[index].name} src={this.state.items[index].image.Original}></img>
+          </div>          
           <span className="text-content">
             {this.state.items[index].name}
           </span>
