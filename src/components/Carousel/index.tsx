@@ -20,8 +20,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     static defaultProps = { itemOffset: 0 };
     state: CarouselState = {
         offset: 0,
-        arrowsVisible: false,
-        isScrolling: false
+        arrowsVisible: false
     };    
     scrollableContainerRef: any;
     constructor(props: CarouselProps) {
