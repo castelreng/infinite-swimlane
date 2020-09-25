@@ -110,11 +110,11 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                         <div>
                             <div className={`px__mwc__arrow px__mwc__arrow--left ${this.state.offset === 0 || !this.state.arrowsVisible ? 'hidden' :''}`} 
                                 style={{ height: `${this.props.height}px`}}>
-                                <ArrowButton onClick={this._backward} />
+                                <ArrowButton onClick={this._backward} height={45} width={45} />
                             </div>     
                             <div className={`px__mwc__arrow px__mwc__arrow--right ${!this.state.arrowsVisible || this._isEnd() ? 'hidden':''}`} 
                                 style={{ height: `${this.props.height}px`}}>
-                                <ArrowButton onClick={this._forward} direction="right" />
+                                <ArrowButton onClick={this._forward} direction="right" height={45} width={45} />
                             </div>
 
                             <List

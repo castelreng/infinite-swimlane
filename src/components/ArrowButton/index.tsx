@@ -37,7 +37,6 @@ const ArrowButton: FunctionComponent<Props> = ({
     );
 
     function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-  
         e.stopPropagation();
         e.currentTarget.blur();
         onClick();
