@@ -1,0 +1,751 @@
+
+
+/*BUTTON*/
+$backgroundColor: #0a0a0a;
+$secColor: #989898;
+$primColor: #ffffff;
+$gray: #636363;
+
+$primContrastColor: #000000;
+/* Boxes, sub menu, ... */
+$nightPurple: #685788;
+
+/* Buttons ONLY */
+$nightPurpleMedium: #282233;
+
+/* Hover, active, ... */
+$darkPurple: #282233;
+
+/* Button hover, active, ... */
+$proximusRed: #df2c5e;
+$proximusBlack: #0A0A0A;
+
+/* Secondary button, ... */
+$secondaryButton: #342c44;
+
+/* hover, active, ... */
+$hover: #5c2d91;
+
+@mixin background-gradient {
+    background: transparent linear-gradient(270deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+    background: -moz-linear-gradient(270deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+    background: -webkit-linear-gradient(270deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+    background: -ms-linear-gradient(270deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+}
+
+@mixin background-gradient-black {
+    background: transparent linear-gradient(270deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+    background: transparent -moz-linear-gradient(270deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+    background: transparent -webkit-linear-gradient(270deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+    background: transparent -ms-linear-gradient(270deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+}
+
+// the following styles are used on color demos on storybook.
+.color-block {
+    font-family: 'Proximus regular', Arial, Helvetica, sans-serif;
+    color: $primColor;
+
+    .color-text {
+        margin-bottom: 10px;
+        &::first-letter {
+            text-transform: capitalize;
+        }
+    }
+
+    .color-box {
+        height: 72px;
+        width: 250px;
+        margin-bottom: 50px;
+        border-radius: 4px;
+
+        &.background {
+            border: 1px solid $secColor;
+            background-color: $backgroundColor;
+        }
+
+        &.primary {
+            background-color: $primColor;
+        }
+
+        &.secondary {
+            background-color: $secColor;
+        }
+
+        &.menus {
+            background-color: $nightPurple;
+        }
+
+        &.button-secondary {
+            background-color: $secondaryButton;
+        }
+
+        &.cards {
+            background-color: $darkPurple;
+        }
+
+        &.hover-active {
+            background-color: $hover;
+        }
+
+        &.button-hover-active {
+            background-color: $proximusRed;
+        }
+
+        &.gradient {
+            background: transparent linear-gradient(180deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+            background: -moz-linear-gradient(180deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+            background: -webkit-linear-gradient(180deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+            background: -ms-linear-gradient(180deg, #df2c5e 0%, #de361f 100%) no-repeat padding-box;
+        }
+
+        &.gradient-dark {
+            background: transparent linear-gradient(180deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+            background: transparent -moz-linear-gradient(180deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+            background: transparent -webkit-linear-gradient(180deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+            background: transparent -ms-linear-gradient(180deg, #0a0a0a 0%, #ffffff 100%) no-repeat padding-box;
+        }
+    }
+}
+
+
+/* COLORS */
+$shadow-color: rgba(23, 23, 23, 1);
+$proximus-secondary: #df2d5f;
+$tab-color: rgba(94, 94, 94, 1);
+$general-text-color: rgba(255, 255, 255, 1);
+$general-text-color-black: rgba(0, 0, 0, 1);
+$recording-sec-text-color: rgb(163, 156, 172);
+$navigation-bg-color: rgb(30, 18, 44);
+$button-prim-color: #1b0d2b;
+$second-line-color: #B8B8B8;
+/* SIDEMENU */
+$sideMenu-active-color: rgba(39, 22, 58, 1);
+$sideMenu-active-text-color: $proximus-secondary;
+$sideMenu-bg-color: rgba(16, 16, 16, 1);
+/* BACKGROUNDS */
+$progress-bg: #707070;
+$general-bg-color: rgba(29, 17, 42, 1);
+$error-background-color: #e5e5e5;
+$background-hover-gradient: linear-gradient(270deg, #ee2e5d 0%, #f23d24 100%);
+$recording-bg-color: rgb(22, 15, 30);
+$flat-more-info-bg: #381b57;
+$player-grey-bg: #989898;
+/* COLORS ACTIVE STATE */
+$title-active: $proximus-secondary;
+$asset-metadata-bg-color: rgb(24, 17, 33);
+
+/* MARGIN AND PADDING */
+$general-padding: 0 10px;
+$homepage-padding-left: 100px;
+
+/*  WIDTH AND HEIGHT */
+$icon-size: 18px;
+$progress-height: 8px;
+$sideMenu-width: 550px;
+$general-tab-height: 50px;
+$sideMenu-border-height: 4px;
+$tab-topbar-height: 70px;
+$controls-icons-size: 25px;
+$asset-metadata-height: 70px;
+
+/* BORDER RADIUS */
+$button-border-radius: 14px;
+
+// @mixin background-gradient {
+//     background-image: linear-gradient(270deg, #ee2e5d 0%, #f23d24 100%);
+//     background-image: -moz-linear-gradient(270deg, #ee2e5d 0%, #f23d24 100%);
+//     background-image: -webkit-linear-gradient(270deg, #ee2e5d 0%, #f23d24 100%);
+//     background-image: -ms-linear-gradient(270deg, #ee2e5d 0%, #f23d24 100%);
+// }
+
+
+$hoverBackgroundColor: rgba(0, 0, 0, 0.2);
+/* BUTTONS */
+@mixin full-state {
+    background-color: $nightPurpleMedium;
+    color: $primColor;
+    border: none;
+    padding: 15px 30px;
+}
+
+@mixin inverse-state {
+    background: transparent;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 0 20px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+
+    background-color: $nightPurpleMedium;
+    color: $primColor;
+    border: none;
+    padding: 0 30px;
+
+    cursor: pointer;
+
+    font-family: 'Proximus bold', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+
+    &:last-child {
+        border-bottom-right-radius: $button-border-radius;
+    }
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+
+    p {
+        text-align: center;
+        vertical-align: middle;
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $proximusRed;
+    }
+
+    &--medium {
+        height: 45.1px;
+        font-size: 16px;
+    }
+
+    &--small {
+        height: 35.1px;
+        font-size: 14px;
+    }
+
+    a {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.button-inverse {
+    @extend .button;
+
+    border: 2px solid $primColor;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+        border: 2px solid $proximusRed;
+    }
+
+    &--medium {
+        height: 45.1px;
+        font-size: 16px;
+    }
+}
+
+.button-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    min-height: 40px;
+
+    background-color: $nightPurple;
+    color: $primColor;
+    padding: 0 15px;
+    cursor: pointer;
+    border: 0;
+
+    font-family: 'Proximus bold', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 3px;
+
+    &:last-child {
+        border-bottom-right-radius: $button-border-radius;
+    }
+
+    &:first-letter {
+        text-transform: uppercase;
+    }
+
+    p {
+        text-align: center;
+        vertical-align: middle;
+
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background: $backgroundColor;
+        color: $primColor;
+        border: 2px solid $primColor;
+        outline: none;
+    }
+}
+
+.badge-style {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    padding: 5px 10px;
+    box-sizing: border-box;
+
+    @include background-gradient();
+    border-radius: 25px;
+    border-bottom-right-radius: 0px;
+
+    font-family: 'Proximus regular', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: $primColor;
+
+    &:first-letter {
+        text-transform: capitalize;
+    }
+}
+
+// extend this style to apply an outline on the element.
+.focus-outline {
+    outline-color: $primColor;
+    outline-style: solid;
+    outline-width: 1px;
+}
+
+
+.px__mwc__button {
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease-out;
+
+    * {
+        transition: all 0.3s ease-out;
+        transition-delay: 0;
+    }
+
+    &::first-letter {
+        text-transform: capitalize;
+    }
+}
+
+.px__mwc__regular-button {
+    background: $nightPurple;
+    color: $primColor;
+    padding: 12px 40px;
+    font-family: 'Proximus regular', Arial, sans-serif;
+    font-size: 18px;
+    border: 2px solid transparent;
+    border-radius: 3px;
+
+    &:last-child {
+        border-bottom-right-radius: 14px;
+    }
+
+    &:hover:enabled {
+        border: 2px solid $primColor;
+        color: $primColor;
+        background: $hoverBackgroundColor;
+    }
+
+    &:focus:enabled {
+        @extend .focus-outline;
+    }
+
+    &__icon {
+        margin-left: 15px;
+    }
+
+    &--secondary {
+        background: $secondaryButton;
+    }
+
+    &--small {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    &--disabled {
+        background: $secColor;
+        cursor: not-allowed;
+    }
+}
+
+// Action buttons:
+.px__mwc__play-button {
+    background: transparent;
+
+    svg {
+        width: 100%;
+        height: 100%;
+
+        circle {
+            fill: $primColor;
+        }
+
+        path {
+            fill: $backgroundColor;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        svg {
+            circle {
+                fill: $hoverBackgroundColor;
+                stroke: $primColor;
+                stroke-width: 4;
+            }
+
+            path {
+                fill: $primColor;
+            }
+        }
+    }
+}
+
+.px__mwc__meatball-button {
+    background: transparent;
+
+    svg {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+
+        circle {
+            fill: $primColor;
+        }
+
+        path {
+            fill: $backgroundColor;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        svg {
+            border: 2px solid white;
+            border-radius: 50%;
+
+            circle {
+                fill: $hoverBackgroundColor;
+            }
+
+            path {
+                fill: $primColor;
+            }
+        }
+    }
+}
+
+.px__mwc__close-button {
+    box-sizing: border-box;
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: $primColor;
+    outline: none;
+    position: relative;
+    border: 2px solid $primColor;
+
+    @media screen and (max-width: 575px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    svg {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+
+        @media screen and (max-width: 575px) {
+            width: 60%;
+            height: 60%;
+        }
+
+        path {
+            fill: $backgroundColor;
+        }
+    }
+
+
+    &--secondary {
+        border-color: transparent;
+        background-color: transparent!important;
+
+        svg { 
+            path {
+                fill: $primColor!important;
+            }
+        }
+    }
+
+    &--purple {
+        border: 2px solid transparent !important;
+        background-color: $nightPurple;
+        svg { 
+            path {
+                fill: white;
+            }
+        }
+
+        &:hover,
+        &:focus,
+        &:focus-within {
+            transition: all 0.2s ease-in;
+            border-radius: 50;
+            border: 2px solid $darkPurple !important;
+            background-color: white !important;
+            svg {
+                path {
+                    fill: $darkPurple;
+                }            
+            }
+        }
+    }
+
+    
+    &:hover,
+    &:focus,
+    &:focus-within {
+        background-color: $hoverBackgroundColor;
+        border: 2px solid $primColor;
+
+        path {
+            fill: $primColor;
+        }
+    }
+}
+
+.px__mwc__arrow-button {
+    border: 2px solid transparent;
+    background-color: $nightPurple;
+    color: $primColor;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+
+    svg {
+        box-sizing: unset!important;
+        height: 45%;
+        width: 45%;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        transition: all 0.3s ease-in;
+        border-radius: 50;
+        border: 2px solid $primColor;
+        background-color: rgba($nightPurpleMedium, 0.5) !important;
+    }
+
+    &[data-direction='right'] {
+        svg {
+            transform: rotate(0);
+        }
+    }
+
+    &[data-direction='left'] {
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    &[data-direction='up'] {
+        svg {
+            transform: rotate(270deg);
+        }
+    }
+
+    &[data-direction='down'] {
+        svg {
+            transform: rotate(90deg);
+        }
+    }
+
+    &--secondary {
+        background-color: transparent;
+    }
+}
+
+.px__mwc__arrow-square-button {
+    border: 2px solid transparent;
+    background-color: $nightPurple;
+    color: $primColor;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+
+    svg {
+        height: 25px;
+        width: 25px;
+        box-sizing: unset!important;
+
+        path {
+            fill: $primColor;
+        }
+        padding: 0 10px;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        transition: all 0.3s ease-in;
+        border: 2px solid $primColor;
+        background-color: rgba($nightPurpleMedium, 0.5) !important;
+    }
+
+    &[data-direction='right'] {
+        svg {
+            transform: rotate(90deg);
+        }
+    }
+
+    &[data-direction='left'] {
+        svg {
+            transform: rotate(270deg);
+        }
+    }
+
+    &[data-direction='up'] {
+        svg {
+            transform: rotate(0);
+        }
+    }
+
+    &[data-direction='down'] {
+        svg {
+            transform: rotate(180deg);
+        }
+    }
+
+    &--secondary {
+        background-color: transparent;
+    }
+}
+
+.px__mwc__prime-time-button {
+    border: 2px solid transparent;
+    background-color: $primColor;
+    color: $nightPurple;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+
+    svg {
+        height: 60%;
+        width: 60%;
+
+        path {
+            fill: $nightPurple;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within {
+        transition: all 0.3s ease-in;
+        border-radius: 50;
+        border: 2px solid $primColor;
+        background-color: rgba($nightPurpleMedium, 0.5) !important;
+
+        svg {
+            path {
+                fill: $primColor;
+            }
+        }
+    }
+}
+
+.px__mwc__icon--button {
+    box-sizing: border-box;
+    border-radius: 50%;
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    outline: none;
+    position: relative;
+    border: 3px solid $nightPurple;
+    background-color: $nightPurple;
+
+    @media screen and (max-width: 575px) {
+        width: 30px;
+        height: 30px;
+    }
+
+    span {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    svg {
+        // width: 45%;
+        // height: 45%;
+        position: absolute;
+
+        @media screen and (max-width: 575px) {
+            width: 60%;
+            height: 60%;
+        }
+
+        * {
+            fill: $primColor;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $hoverBackgroundColor;
+        border: 3px solid $primColor;
+
+        path {
+            fill: $primColor;
+        }
+    }
+
+    &--square {
+        border-radius: 4px;
+    }
+
+    &--secondary {
+        border: 3px solid $hoverBackgroundColor;
+        background: $hoverBackgroundColor;
+    }
+}

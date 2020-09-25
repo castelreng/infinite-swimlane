@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FixedSizeList as List, ListOnScrollProps, ListChildComponentProps} from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import './style.scss';
+import ArrowButton from '../ArrowButton';
 
 interface CarouselState {
     offset: number,
@@ -28,8 +29,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.scrollableContainerRef = React.createRef();
         this._onScroll = this._onScroll.bind(this);
         this._renderItem = this._renderItem.bind(this);
-        this._forward = this._forward.bind(this);
-        this._backward = this._backward.bind(this);
     }   
 
     //Return the right gap to add to offset to ensure that last/first cropped item will be full visible after a backward/forward action
@@ -39,7 +38,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         return itemRest * this.props.itemSize;
     }
 
-    _forward() {
+    _forward() :void {
         this.setState((prevState) => {
             let offset = prevState.offset;
             if (offset === 0) {
@@ -57,7 +56,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this._isEnd();
     }
 
-    _backward() {
+    _backward() : void {
         this.setState((prevState) => {
             let offset = prevState.offset;
             //Offset value after the first forward action
@@ -109,11 +108,11 @@ class Carousel extends Component<CarouselProps, CarouselState> {
                         <div>
                             <div className={`px__mwc__arrow px__mwc__arrow--left ${this.state.offset === 0 || !this.state.arrowsVisible ? 'hidden' :''}`} 
                                 style={{ height: `${this.props.height}px`}}>
-                                <button onClick={this._backward}>Prev</button>
+                                <ArrowButton onClick={() => this._backward()} />
                             </div>     
                             <div className={`px__mwc__arrow px__mwc__arrow--right ${!this.state.arrowsVisible || this._isEnd() ? 'hidden':''}`} 
                                 style={{ height: `${this.props.height}px`}}>
-                                <button onClick={this._forward}>Next</button>
+                                <ArrowButton onClick={() => this._forward() } direction="right" />
                             </div>
 
                             <List
