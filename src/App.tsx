@@ -59,11 +59,25 @@ class App extends Component<{}, AppState> {
                 <h2 style={{ paddingLeft: '0.5rem' }}>More than 300 items</h2>
                 <Carousel renderItem={(params) => this.renderItem(params)} itemCount={this.state.items.length} height={200} itemSize={250} />
               </div>
-              <div className="swimlane">
+              {/*<div className="swimlane">
                 <h2 style={{paddingLeft: '3.5rem'}}>Only 20 items with offset</h2>
                 <Carousel renderItem={(params) => this.renderItem(params)} itemCount={20} height={300} itemSize={350} itemOffset={50} />
-              </div>     
-            </Route>           
+              </div>*/}
+            </Route>    
+            <Route exact path="/test">
+              <div style={{ display: 'flex', width: 'fit-content' }}>
+                {this.state.items.map((item) => (
+                  <div className="item" key={item.id} style={{ height: "250px", width: "250px" }}>
+                    <div className="img-container">
+                      <img alt={item.name} src={item.image.Original}></img>
+                    </div>
+                    <span className="text-content">
+                      {item.name}
+                    </span>
+                  </div>
+                ))}
+              </div> 
+            </Route>       
           </Switch>
         </div>
       </Router>
